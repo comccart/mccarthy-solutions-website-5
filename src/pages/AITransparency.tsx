@@ -1,27 +1,89 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { Menu } from "lucide-react";
+import { useState } from "react";
+import { Drawer, DrawerClose, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
+import chevronLogo from "@/assets/chevron-logo.png";
 
 const AITransparency = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b border-border sticky top-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link to="/" className="text-xl font-bold text-primary hover:text-primary/80 transition-colors">
-            McCarthy Solutions
-          </Link>
-          <Link to="/">
-            <Button variant="ghost" size="sm">
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Home
-            </Button>
-          </Link>
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <Link to="/" className="flex items-center gap-2">
+              <img src={chevronLogo} alt="McCarthy Solutions" className="w-8 h-8" />
+              <div className="text-2xl font-bold text-foreground">McCarthy Solutions</div>
+            </Link>
+            
+            <div className="hidden md:flex items-center gap-8">
+              <Link to="/#services" className="text-foreground hover:text-accent transition-colors">Services</Link>
+              <Link to="/#process" className="text-foreground hover:text-accent transition-colors">Process</Link>
+              <Link to="/#results" className="text-foreground hover:text-accent transition-colors">Results</Link>
+              <Link to="/#testimonials" className="text-foreground hover:text-accent transition-colors">Testimonials</Link>
+              <Link to="/case-studies" className="text-foreground hover:text-accent transition-colors">Case Studies</Link>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <Button 
+                variant="default" 
+                size="lg" 
+                className="hidden md:inline-flex bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg" 
+                onClick={() => window.open('https://calendar.app.google/PaVwZ8ZxYX5SVBJT8', '_blank')}
+              >
+                Book free intro call
+              </Button>
+              
+              <Drawer open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+                <DrawerTrigger asChild>
+                  <Button variant="ghost" size="icon" className="md:hidden">
+                    <Menu className="h-6 w-6" />
+                  </Button>
+                </DrawerTrigger>
+                <DrawerContent>
+                  <DrawerHeader>
+                    <DrawerTitle>Menu</DrawerTitle>
+                  </DrawerHeader>
+                  <div className="flex flex-col gap-4 p-4">
+                    <Link to="/#services" className="text-lg text-foreground hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>
+                      Services
+                    </Link>
+                    <Link to="/#process" className="text-lg text-foreground hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>
+                      Process
+                    </Link>
+                    <Link to="/#results" className="text-lg text-foreground hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>
+                      Results
+                    </Link>
+                    <Link to="/#testimonials" className="text-lg text-foreground hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>
+                      Testimonials
+                    </Link>
+                    <Link to="/case-studies" className="text-lg text-foreground hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>
+                      Case Studies
+                    </Link>
+                    <Button 
+                      variant="default" 
+                      size="lg" 
+                      className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg mt-4" 
+                      onClick={() => {
+                        window.open('https://calendar.app.google/PaVwZ8ZxYX5SVBJT8', '_blank');
+                        setMobileMenuOpen(false);
+                      }}
+                    >
+                      Book free intro call
+                    </Button>
+                  </div>
+                </DrawerContent>
+              </Drawer>
+            </div>
+          </div>
         </div>
-      </header>
+      </nav>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-12 max-w-4xl">
+      <main className="container mx-auto px-4 py-12 max-w-4xl" style={{ paddingTop: '120px' }}>
         <div className="space-y-8">
           <div>
             <h1 className="text-4xl font-bold mb-4 text-foreground">AI Transparency Notice</h1>
