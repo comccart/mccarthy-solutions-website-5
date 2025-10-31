@@ -606,21 +606,30 @@ const Legal = () => {
             <div>
               <h3 className="font-semibold mb-4 text-foreground">Legal</h3>
               <div className="space-y-2">
-                <Link to="/legal#privacy-policy" className="block text-muted-foreground hover:text-foreground transition-colors">
+                <button 
+                  onClick={() => scrollToSection('privacy-policy')} 
+                  className="block text-muted-foreground hover:text-foreground transition-colors text-left"
+                >
                   Privacy Policy
-                </Link>
-                <Link to="/legal#terms-of-service" className="block text-muted-foreground hover:text-foreground transition-colors">
+                </button>
+                <button 
+                  onClick={() => scrollToSection('terms-of-service')} 
+                  className="block text-muted-foreground hover:text-foreground transition-colors text-left"
+                >
                   Terms of Service
-                </Link>
-                <Link to="/legal#cookie-policy" className="block text-muted-foreground hover:text-foreground transition-colors">
+                </button>
+                <button 
+                  onClick={() => scrollToSection('cookie-policy')} 
+                  className="block text-muted-foreground hover:text-foreground transition-colors text-left"
+                >
                   Cookie Policy
-                </Link>
+                </button>
               </div>
             </div>
           </div>
 
-          <div className="border-t border-border pt-8 text-center text-muted-foreground">
-            <p>&copy; {new Date().getFullYear()} McCarthy Solutions. All rights reserved.</p>
+          <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
+            © {new Date().getFullYear()} McCarthy Solutions. All rights reserved. Built with 💚 in Dublin. <a href="mailto:conor@mccarthy-solutions.com" className="hover:text-accent transition-colors underline">Get in touch</a>
           </div>
         </div>
       </footer>
