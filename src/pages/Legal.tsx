@@ -27,7 +27,9 @@ const Legal = () => {
     const hash = window.location.hash;
     if (hash) {
       setTimeout(() => {
-        const element = document.querySelector(hash);
+        // Decode the hash to handle %2523cookie-policy → #cookie-policy
+        const decodedHash = decodeURIComponent(hash);
+        const element = document.querySelector(decodedHash);
         if (element) {
           element.scrollIntoView({ behavior: "smooth", block: "start" });
         }
@@ -36,10 +38,12 @@ const Legal = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
+    // Handle both "cookie-policy" and "#cookie-policy" formats
+    const id = sectionId.replace('#', '');
+    const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
-      window.history.pushState({}, "", `#${sectionId}`);
+      window.history.pushState({}, "", `#${id}`);
     }
   };
 
