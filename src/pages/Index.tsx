@@ -8,6 +8,7 @@ import { useState } from "react";
 import { Drawer, DrawerClose, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 import chevronLogo from "@/assets/chevron-logo.png";
 import iwaiLogo from "@/assets/iwai-logo-new.png";
+import huggingfaceLogo from "@/assets/huggingface-logo.png";
 import altmbaLogo from "@/assets/altmba-logo.jpg";
 import gdpLogo from "@/assets/gdp-logo.jpg";
 import iipLogo from "@/assets/inclusion-intelligence-logo.png";
@@ -212,6 +213,10 @@ const Index = () => {
             <div className="flex flex-col items-start gap-3">
               <img src={iwaiLogo} alt="Innovating with AI" className="h-12" />
               <span className="text-base font-semibold text-muted-foreground">IWAI Certified</span>
+            </div>
+            <div className="flex flex-col items-start gap-3">
+              <img src={huggingfaceLogo} alt="Hugging Face AI Agents Fundamentals" className="h-12" />
+              <span className="text-base font-semibold text-muted-foreground">AI Agents Certified</span>
             </div>
           </div>
 
