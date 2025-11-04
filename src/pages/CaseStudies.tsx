@@ -371,8 +371,8 @@ const CaseStudies = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border py-16 bg-muted/30">
-        <div className="container mx-auto px-6">
+      <footer className="py-12 px-6 border-t border-border" style={{ backgroundColor: '#F5F1ED' }}>
+        <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">

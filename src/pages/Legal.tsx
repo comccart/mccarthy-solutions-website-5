@@ -575,8 +575,8 @@ const Legal = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-muted/30 border-t border-border">
-        <div className="container mx-auto px-6 py-12">
+      <footer className="py-12 px-6 border-t border-border" style={{ backgroundColor: '#F5F1ED' }}>
+        <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
