@@ -9,6 +9,7 @@ import { Drawer, DrawerClose, DrawerContent, DrawerHeader, DrawerTitle, DrawerTr
 import chevronLogo from "@/assets/chevron-logo.png";
 import iwaiLogo from "@/assets/iwai-logo-new.png";
 import huggingfaceLogo from "@/assets/huggingface-logo.png";
+import vanderbiltLogo from "@/assets/vanderbilt-logo.png";
 import altmbaLogo from "@/assets/altmba-logo.jpg";
 import gdpLogo from "@/assets/gdp-logo.jpg";
 import iipLogo from "@/assets/inclusion-intelligence-logo.png";
@@ -217,6 +218,10 @@ const Index = () => {
             <div className="flex flex-col items-start gap-3">
               <img src={huggingfaceLogo} alt="Hugging Face AI Agents Fundamentals" className="h-12" />
               <span className="text-base font-semibold text-muted-foreground">AI Agents Certified</span>
+            </div>
+            <div className="flex flex-col items-start gap-3">
+              <img src={vanderbiltLogo} alt="Vanderbilt University Change Management for Gen-AI" className="h-12" />
+              <span className="text-base font-semibold text-muted-foreground">Change Management Certified</span>
             </div>
           </div>
 
